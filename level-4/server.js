@@ -1,8 +1,7 @@
-;
+
 import express from 'express'
 import fs from 'fs'
 import path from 'path'
-import { json } from 'stream/consumers';
 
 const app = express();
 const port = 1234
@@ -10,7 +9,6 @@ const port = 1234
 app.use(express.json());
 
 const noteFile = path.join('./notes.json');
-const taskFile = path.join('./tasks.json');
 
 function loadData(file)  {
     if(!fs.existsSync(file)){
