@@ -12,9 +12,9 @@ app.get('/', (req,res) => {
     res.send("hello ji kya hal chal");
 })
 
-// 🔴 Custom error handler (must be AFTER all routes and middleware)
+//  Custom error handler 
 app.use((err, req, res, next) => {
-    console.error("🔥 ERROR:", err.stack);
+    console.error(" error:", err.stack);
     res.status(500).json({ error: "Something went wrong on the server!" });
 });
 
