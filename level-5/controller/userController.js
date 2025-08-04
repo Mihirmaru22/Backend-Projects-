@@ -12,7 +12,8 @@ export function getFile(req,res){
 }
 
 export function postFile(req,res) {
-    const {name ,email} = req.body;
+    try {
+        const {name ,email} = req.body;
     if(!name || !email){
         res.status(400).json({error : "name and email both required"})
     }
@@ -26,4 +27,7 @@ export function postFile(req,res) {
     employ.push(newEmpoly);
     saveFile(UserData,employ);
     res.status(200).json({sucess: true, data : newEmpoly});
+    } catch (error) {
+        next(error);
+    }
 }
